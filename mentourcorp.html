@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MentourCorp — Digital Transformation & Technology Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #050F2C;
+  --navy2: #0A1F5C;
+  --electric: #0057FF;
+  --electric2: #3D82FF;
+  --cyan: #00C8D4;
+  --gold: #F0A500;
+  --light: #F4F7FF;
+  --mid: #E0E8FF;
+  --gray: #7A8099;
+  --white: #FFFFFF;
+  --text: #1A2240;
+  --text2: #455070;
+  --border: rgba(0,87,255,0.12);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 32px rgba(5,15,44,0.10);
+  --shadow-lg: 0 12px 60px rgba(5,15,44,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; font-weight: 700; }
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; }
+
+/* ─── UTILITY ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 96px 0; }
+.section-sm { padding: 64px 0; }
+.badge {
+  display: inline-block;
+  background: rgba(0,87,255,0.10);
+  color: var(--electric);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+.badge-gold {
+  background: rgba(240,165,0,0.12);
+  color: #B07500;
+}
+.section-title {
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.12;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 18px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 600px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+.btn-primary {
+  background: var(--electric);
+  color: var(--white);
+}
+.btn-primary:hover { background: #003FCC; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,87,255,0.35); }
+.btn-outline {
+  background: transparent;
+  color: var(--electric);
+  border: 2px solid var(--electric);
+}
+.btn-outline:hover { background: var(--electric); color: var(--white); }
+.btn-white {
+  background: var(--white);
+  color: var(--navy);
+}
+.btn-white:hover { background: var(--light); transform: translateY(-2px); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+.card:hover { box-shadow: var(--shadow-lg); border-color: rgba(0,87,255,0.25); transform: translateY(-4px); }
+.tag {
+  display: inline-block;
+  background: var(--light);
+  color: var(--text2);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+.tag-blue { background: rgba(0,87,255,0.10); color: var(--electric); }
+.tag-green { background: rgba(0,180,100,0.12); color: #007840; }
+.tag-gold { background: rgba(240,165,0,0.12); color: #8A6000; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-icon {
+  width: 36px; height: 36px;
+  background: var(--electric);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 20px; height: 20px; fill: white; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-links a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text2);
+  transition: all 0.2s;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--navy);
+  background: var(--light);
+}
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-actions .btn { padding: 10px 20px; font-size: 14px; }
+
+/* ─── HERO ─── */
+#home {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 72px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 60% at 80% 50%, rgba(0,87,255,0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0,200,212,0.15) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 28px;
+}
+.hero-tag span { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; display: inline-block; }
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(44px, 6vw, 82px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+.hero-title .accent { color: var(--cyan); }
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 40px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--white);
+}
+.stat-label { font-size: 13px; color: rgba(255,255,255,0.50); margin-top: 4px; }
+.hero-visual {
+  position: absolute;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 48%;
+  opacity: 0.15;
+}
+
+/* ─── MARQUEE ─── */
+.marquee-section {
+  background: var(--navy2);
+  padding: 20px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.marquee-track {
+  display: flex;
+  gap: 80px;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* ─── SERVICES ─── */
+#services { background: var(--white); }
+.services-header { text-align: center; margin-bottom: 64px; }
+.services-header .section-sub { margin: 0 auto; }
+.service-card {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--electric);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover { background: var(--white); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.service-icon {
+  width: 52px; height: 52px;
+  background: rgba(0,87,255,0.12);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.service-icon svg { width: 26px; height: 26px; fill: var(--electric); }
+.service-card h3 { font-size: 19px; margin-bottom: 10px; color: var(--navy); }
+.service-card p { font-size: 15px; color: var(--text2); line-height: 1.65; margin-bottom: 16px; }
+.service-card .tag { margin-right: 4px; margin-bottom: 4px; }
+
+/* ─── WHY US ─── */
+#why { background: var(--navy); color: var(--white); }
+#why .section-title { color: var(--white); }
+#why .section-sub { color: rgba(255,255,255,0.60); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 64px; }
+.why-left { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.why-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius);
+  padding: 28px;
+  transition: all 0.3s;
+}
+.why-card:hover { background: rgba(0,87,255,0.20); border-color: rgba(0,87,255,0.40); }
+.why-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.why-card h4 { font-size: 15px; color: white; margin-bottom: 6px; }
+.why-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+.why-right { }
+.why-point {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  align-items: flex-start;
+}
+.why-dot {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: rgba(0,87,255,0.20);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.why-dot svg { width: 20px; height: 20px; fill: var(--cyan); }
+.why-point h4 { font-size: 16px; color: white; margin-bottom: 4px; }
+.why-point p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+/* ─── INDUSTRIES ─── */
+#industries { background: var(--light); }
+.industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+.industry-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: default;
+}
+.industry-item:hover { border-color: var(--electric); box-shadow: var(--shadow); transform: translateY(-3px); }
+.industry-item .icon {
+  width: 56px; height: 56px;
+  background: var(--light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 26px;
+}
+.industry-item h4 { font-size: 15px; color: var(--navy); }
+.industry-item p { font-size: 13px; color: var(--gray); margin-top: 4px; }
+
+/* ─── CASE STUDIES ─── */
+#work { background: var(--white); }
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+.case-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.case-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.case-img {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.case-img-1 { background: linear-gradient(135deg, #0A1F5C, #0057FF); }
+.case-img-2 { background: linear-gradient(135deg, #05302A, #00C8D4); }
+.case-img-3 { background: linear-gradient(135deg, #2A0F3C, #8A2BE2); }
+.case-img-4 { background: linear-gradient(135deg, #3C1A00, #F0A500); }
+.case-body { padding: 28px; }
+.case-body .badge { margin-bottom: 10px; }
+.case-body h3 { font-size: 20px; color: var(--navy); margin-bottom: 8px; }
+.case-body p { font-size: 14px; color: var(--text2); line-height: 1.65; margin-bottom: 16px; }
+.case-result {
+  display: flex;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.case-metric .num { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 700; color: var(--electric); }
+.case-metric .lbl { font-size: 12px; color: var(--gray); }
+
+/* ─── LEADERSHIP ─── */
+#leadership { background: var(--light); }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 56px; }
+.team-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s;
+  text-align: center;
+}
+.team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.team-avatar {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+}
+.av-1 { background: linear-gradient(135deg, #0A1F5C, #0057FF); }
+.av-2 { background: linear-gradient(135deg, #1A0540, #8A2BE2); }
+.av-3 { background: linear-gradient(135deg, #052C1A, #00C8D4); }
+.av-4 { background: linear-gradient(135deg, #3C1A00, #F0A500); }
+.team-info { padding: 20px; }
+.team-info h4 { font-size: 16px; color: var(--navy); }
+.team-info .role { font-size: 13px; color: var(--electric); font-weight: 500; margin: 4px 0; }
+.team-info p { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+/* ─── CAREERS ─── */
+#careers { background: var(--white); }
+.careers-header { margin-bottom: 48px; }
+.careers-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 64px; }
+.perks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.perk {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  background: var(--light);
+  border-radius: var(--radius-sm);
+}
+.perk-icon { font-size: 22px; flex-shrink: 0; }
+.perk h5 { font-size: 14px; color: var(--navy); margin-bottom: 3px; }
+.perk p { font-size: 13px; color: var(--gray); }
+
+/* ─── JOB BOARD ─── */
+.jobs-section { margin-top: 16px; }
+.jobs-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.filter-select {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text2);
+  background: var(--white);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.filter-select:focus { border-color: var(--electric); }
+.jobs-search {
+  flex: 1;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  min-width: 200px;
+}
+.jobs-search:focus { border-color: var(--electric); }
+.jobs-list { display: flex; flex-direction: column; gap: 14px; }
+.job-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.job-card:hover { border-color: var(--electric); box-shadow: 0 4px 20px rgba(0,87,255,0.10); }
+.job-dept-icon {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.jd-tech { background: rgba(0,87,255,0.10); }
+.jd-data { background: rgba(0,200,212,0.10); }
+.jd-design { background: rgba(240,165,0,0.12); }
+.jd-mgmt { background: rgba(0,180,100,0.10); }
+.jd-cloud { background: rgba(138,43,226,0.10); }
+.job-info { flex: 1; }
+.job-info h4 { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+.job-meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.job-tags { display: flex; gap: 8px; align-items: center; margin-top: 6px; flex-wrap: wrap; }
+.job-apply {
+  padding: 10px 22px;
+  background: var(--electric);
+  color: white;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.job-apply:hover { background: #003FCC; transform: translateY(-1px); }
+
+/* ─── MODAL ─── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5,15,44,0.65);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--white);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  background: var(--light);
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: var(--mid); }
+.modal h2 { font-size: 24px; color: var(--navy); margin-bottom: 6px; }
+.modal .sub { font-size: 14px; color: var(--gray); margin-bottom: 28px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 13px; font-weight: 500; color: var(--text2); margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  background: var(--white);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--electric); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--electric);
+  color: white;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+.form-submit:hover { background: #003FCC; transform: translateY(-2px); }
+.success-msg {
+  display: none;
+  text-align: center;
+  padding: 24px;
+}
+.success-msg .check { font-size: 48px; margin-bottom: 12px; }
+.success-msg h3 { font-size: 22px; color: var(--navy); margin-bottom: 8px; }
+.success-msg p { font-size: 15px; color: var(--gray); }
+
+/* ─── EMPLOYEE PORTAL ─── */
+#portal { background: var(--light); }
+.portal-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.portal-left h3 { font-size: 28px; color: var(--navy); margin-bottom: 12px; }
+.portal-left p { font-size: 16px; color: var(--text2); line-height: 1.7; margin-bottom: 28px; }
+.portal-features { display: flex; flex-direction: column; gap: 12px; }
+.portal-feat {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--text2);
+}
+.portal-feat .icon { font-size: 20px; }
+.portal-right {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.portal-tabs {
+  display: flex;
+  background: var(--light);
+  border-bottom: 1px solid var(--border);
+}
+.portal-tab {
+  flex: 1;
+  padding: 14px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+}
+.portal-tab.active {
+  color: var(--electric);
+  background: var(--white);
+  border-bottom-color: var(--electric);
+}
+.portal-content { padding: 32px; }
+.portal-panel { display: none; }
+.portal-panel.active { display: block; }
+.portal-panel h4 { font-size: 18px; color: var(--navy); margin-bottom: 20px; }
+
+/* Timesheet */
+.ts-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+.ts-day { text-align: center; }
+.ts-day .day-name { font-size: 11px; color: var(--gray); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
+.ts-day input {
+  width: 100%;
+  padding: 10px 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+  outline: none;
+}
+.ts-day input:focus { border-color: var(--electric); }
+.ts-total {
+  padding: 14px 18px;
+  background: var(--light);
+  border-radius: var(--radius-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text2);
+  margin-bottom: 16px;
+}
+.ts-total strong { font-family: 'Syne', sans-serif; font-size: 20px; color: var(--navy); }
+
+/* ─── CONTACT ─── */
+#contact { background: var(--navy); }
+#contact .section-title { color: var(--white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 56px; }
+.contact-info { }
+.contact-info p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 36px; }
+.contact-items { display: flex; flex-direction: column; gap: 16px; }
+.contact-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+}
+.contact-item .icon { font-size: 22px; }
+.contact-form {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 40px;
+}
+.contact-form h3 { font-size: 24px; color: var(--navy); margin-bottom: 24px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--navy2);
+  color: rgba(255,255,255,0.60);
+  padding: 64px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand .logo { color: white; margin-bottom: 14px; }
+.footer-brand p { font-size: 14px; line-height: 1.7; }
+.footer-col h5 {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--cyan); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+/* ─── PORTAL DASHBOARD (logged in) ─── */
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.dash-welcome { font-size: 16px; color: var(--navy); }
+.dash-welcome span { color: var(--electric); font-weight: 600; }
+.dash-logout {
+  font-size: 13px;
+  color: var(--gray);
+  cursor: pointer;
+  text-decoration: underline;
+}
+.dash-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.dash-card {
+  background: var(--light);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+}
+.dash-card .num { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 700; color: var(--navy); }
+.dash-card .lbl { font-size: 11px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.6s ease forwards; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .case-grid, .portal-wrap, .contact-grid, .careers-intro, .why-grid, .why-left { grid-template-columns: 1fr; }
+  .industry-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { gap: 28px; }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 64px 0; }
+  .form-row { grid-template-columns: 1fr; }
+  .industry-grid, .team-grid, .footer-grid { grid-template-columns: 1fr; }
+  .ts-grid { grid-template-columns: repeat(3, 1fr); }
+  .perks-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      MentourCorp
+    </a>
+    <div class="nav-links">
+      <a href="#home" class="active" onclick="setActive(this)">Home</a>
+      <a href="#services" onclick="setActive(this)">Services</a>
+      <a href="#work" onclick="setActive(this)">Portfolio</a>
+      <a href="#industries" onclick="setActive(this)">Industries</a>
+      <a href="#careers" onclick="setActive(this)">Careers</a>
+      <a href="#contact" onclick="setActive(this)">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#portal" class="btn btn-outline" onclick="setActive(null)">Employee Portal</a>
+      <button class="btn btn-primary" onclick="openModal('contact-modal')">Get a Quote</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero-bg">
+  <div class="hero-grid"></div>
+  <div class="container hero-content">
+    <div class="hero-tag"><span></span> Trusted by 400+ Global Enterprises</div>
+    <h1 class="hero-title">
+      We Engineer<br>
+      <span class="accent">Tomorrow's</span><br>
+      Digital Future
+    </h1>
+    <p class="hero-sub">MentourCorp delivers world-class technology consulting, AI-driven transformation, cloud infrastructure, and managed services — empowering enterprises across 30+ countries.</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="openModal('contact-modal')">Start Your Journey →</button>
+      <a href="#work" class="btn btn-white">View Portfolio</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Countries Served</div>
+      </div>
+      <div>
+        <div class="stat-num">400+</div>
+        <div class="stat-label">Enterprise Clients</div>
+      </div>
+      <div>
+        <div class="stat-num">12K+</div>
+        <div class="stat-label">Professionals</div>
+      </div>
+      <div>
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Client Retention</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Digital Transformation</span>
+    <span class="marquee-item">Cloud Engineering</span>
+    <span class="marquee-item">AI & Machine Learning</span>
+    <span class="marquee-item">Cybersecurity</span>
+    <span class="marquee-item">ERP Solutions</span>
+    <span class="marquee-item">Data Analytics</span>
+    <span class="marquee-item">DevSecOps</span>
+    <span class="marquee-item">Managed Services</span>
+    <span class="marquee-item">IoT Integration</span>
+    <span class="marquee-item">Blockchain</span>
+    <span class="marquee-item">Digital Transformation</span>
+    <span class="marquee-item">Cloud Engineering</span>
+    <span class="marquee-item">AI & Machine Learning</span>
+    <span class="marquee-item">Cybersecurity</span>
+    <span class="marquee-item">ERP Solutions</span>
+    <span class="marquee-item">Data Analytics</span>
+    <span class="marquee-item">DevSecOps</span>
+    <span class="marquee-item">Managed Services</span>
+    <span class="marquee-item">IoT Integration</span>
+    <span class="marquee-item">Blockchain</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="services-header">
+      <div class="badge">Our Services</div>
+      <h2 class="section-title">Enterprise Solutions,<br>Built to Scale</h2>
+      <p class="section-sub">From strategy to execution, MentourCorp delivers end-to-end technology services that drive measurable business outcomes.</p>
+    </div>
+    <div class="grid-3">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg></div>
+        <h3>Digital Transformation</h3>
+        <p>Reimagine your enterprise with end-to-end digital strategies, process automation, and technology modernization that accelerate growth.</p>
+        <span class="tag">Strategy</span><span class="tag">Automation</span><span class="tag">Change Mgmt</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Cloud Infrastructure</h3>
+        <p>Design, migrate, and optimize cloud environments across AWS, Azure, and GCP. Achieve resilience, security, and cost efficiency at scale.</p>
+        <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M5.93 19.07a10 10 0 0 1 0-14.14M12 2v2M12 20v2M2 12H4M20 12h2"/></svg></div>
+        <h3>AI & Machine Learning</h3>
+        <p>Harness the power of artificial intelligence — from NLP and computer vision to predictive analytics and generative AI platforms.</p>
+        <span class="tag">GenAI</span><span class="tag">MLOps</span><span class="tag">LLMs</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Cybersecurity</h3>
+        <p>Protect your enterprise with zero-trust architecture, SOC-as-a-Service, threat intelligence, and compliance frameworks like ISO 27001.</p>
+        <span class="tag">Zero Trust</span><span class="tag">SOC</span><span class="tag">Compliance</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h3>Data & Analytics</h3>
+        <p>Unlock enterprise intelligence through data lakes, real-time dashboards, BI platforms, and AI-powered reporting pipelines.</p>
+        <span class="tag">Power BI</span><span class="tag">Snowflake</span><span class="tag">Databricks</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Application Development</h3>
+        <p>Build enterprise-grade applications with agile methodologies — mobile-first, API-driven architectures designed for tomorrow.</p>
+        <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Microservices</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>ERP & Enterprise Systems</h3>
+        <p>Implement, customize, and support SAP, Oracle, and Microsoft Dynamics — driving operational excellence across your value chain.</p>
+        <span class="tag">SAP</span><span class="tag">Oracle</span><span class="tag">Dynamics</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Managed IT Services</h3>
+        <p>24/7 infrastructure monitoring, helpdesk support, and proactive maintenance — so your teams focus on what matters most.</p>
+        <span class="tag">24/7 NOC</span><span class="tag">ITSM</span><span class="tag">SLA-backed</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <h3>IoT & Edge Computing</h3>
+        <p>Connect, manage, and derive insights from billions of edge devices — industrial IoT, smart infrastructure, and connected supply chains.</p>
+        <span class="tag">Industry 4.0</span><span class="tag">MQTT</span><span class="tag">Edge AI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="badge" style="background:rgba(0,200,212,0.15);color:var(--cyan)">Why MentourCorp</div>
+    <h2 class="section-title">The Competitive Edge<br>You've Been Looking For</h2>
+    <p class="section-sub">We combine deep industry expertise with cutting-edge technology and a relentless focus on outcomes — not just outputs.</p>
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="why-card">
+          <div class="why-num">12K+</div>
+          <h4>Certified Professionals</h4>
+          <p>AWS, Azure, GCP, CISSP, PMP, TOGAF and more</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">30+</div>
+          <h4>Countries</h4>
+          <p>Global delivery with local expertise and presence</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">400+</div>
+          <h4>Enterprise Clients</h4>
+          <p>From Fortune 100 to high-growth scale-ups</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">98%</div>
+          <h4>Retention Rate</h4>
+          <p>Because results speak louder than promises</p>
+        </div>
+      </div>
+      <div class="why-right">
+        <div class="why-point">
+          <div class="why-dot"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div>
+            <h4>Outcome-Driven Delivery</h4>
+            <p>Every engagement is anchored to measurable KPIs — cost reduction, revenue uplift, or time-to-market acceleration.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-dot"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div>
+            <h4>Agile at Enterprise Scale</h4>
+            <p>SAFe-certified delivery teams that move fast without sacrificing governance, quality, or compliance.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div>
+            <h4>Global Talent, Local Insight</h4>
+            <p>On-shore, near-shore, and off-shore delivery models with 24/7 follow-the-sun support across all time zones.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-dot"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <h4>Enterprise-Grade Security</h4>
+            <p>ISO 27001, SOC 2 Type II, and GDPR compliant operations with rigorous data protection at every layer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries" class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:16px">
+      <div class="badge">Industries</div>
+      <h2 class="section-title">Expertise Across Every Sector</h2>
+      <p class="section-sub" style="margin:0 auto">Deep domain knowledge that translates technology into competitive advantage — whatever your industry.</p>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-item"><div class="icon">🏦</div><h4>Banking & Finance</h4><p>Core banking, RegTech, risk analytics</p></div>
+      <div class="industry-item"><div class="icon">🏥</div><h4>Healthcare</h4><p>EHR, telehealth, life sciences</p></div>
+      <div class="industry-item"><div class="icon">🏭</div><h4>Manufacturing</h4><p>Industry 4.0, supply chain, MES</p></div>
+      <div class="industry-item"><div class="icon">🛒</div><h4>Retail & E-Commerce</h4><p>Omnichannel, loyalty, personalization</p></div>
+      <div class="industry-item"><div class="icon">✈️</div><h4>Travel & Logistics</h4><p>Fleet mgmt, GDS, real-time tracking</p></div>
+      <div class="industry-item"><div class="icon">⚡</div><h4>Energy & Utilities</h4><p>Smart grids, SCADA, sustainability</p></div>
+      <div class="industry-item"><div class="icon">📡</div><h4>Telecom & Media</h4><p>OSS/BSS, streaming, 5G platforms</p></div>
+      <div class="industry-item"><div class="icon">🎓</div><h4>Education & Ed-Tech</h4><p>LMS, digital campuses, AI tutors</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work" class="section">
+  <div class="container">
+    <div class="badge">Portfolio</div>
+    <h2 class="section-title">Transformation in Action</h2>
+    <p class="section-sub">Real stories, real impact. See how MentourCorp has helped industry leaders reinvent themselves for the digital age.</p>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-img case-img-1" style="font-size:48px">🏦</div>
+        <div class="case-body">
+          <div class="badge">Banking</div>
+          <h3>Core Banking Modernization for NovaTrust Bank</h3>
+          <p>Migrated a 30-year-old monolithic core banking system to a cloud-native microservices architecture, enabling real-time payments and next-gen customer experiences.</p>
+          <div class="case-result">
+            <div class="case-metric"><div class="num">60%</div><div class="lbl">Faster Processing</div></div>
+            <div class="case-metric"><div class="num">$18M</div><div class="lbl">Annual Savings</div></div>
+            <div class="case-metric"><div class="num">99.99%</div><div class="lbl">Uptime SLA</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-img case-img-2" style="font-size:48px">🏥</div>
+        <div class="case-body">
+          <div class="badge">Healthcare</div>
+          <h3>AI-Powered Patient Management for HeliosHealth</h3>
+          <p>Built an end-to-end AI platform for predictive diagnostics, appointment scheduling, and clinical decision support — deployed across 120 hospitals in 8 countries.</p>
+          <div class="case-result">
+            <div class="case-metric"><div class="num">40%</div><div class="lbl">Reduced Wait Times</div></div>
+            <div class="case-metric"><div class="num">120</div><div class="lbl">Hospitals</div></div>
+            <div class="case-metric"><div class="num">2M+</div><div class="lbl">Patients Served</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-img case-img-3" style="font-size:48px">🏭</div>
+        <div class="case-body">
+          <div class="badge">Manufacturing</div>
+          <h3>Industry 4.0 Rollout for Verispan Manufacturing</h3>
+          <p>Deployed IoT sensors, digital twins, and predictive maintenance AI across 14 production plants — dramatically reducing downtime and operational costs.</p>
+          <div class="case-result">
+            <div class="case-metric"><div class="num">35%</div><div class="lbl">Less Downtime</div></div>
+            <div class="case-metric"><div class="num">14</div><div class="lbl">Plants Connected</div></div>
+            <div class="case-metric"><div class="num">$24M</div><div class="lbl">Savings/Year</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-img case-img-4" style="font-size:48px">🛒</div>
+        <div class="case-body">
+          <div class="badge">Retail</div>
+          <h3>Omnichannel Transformation for LuxeMart Group</h3>
+          <p>Unified online, mobile, and in-store experiences with a real-time inventory engine, personalization AI, and loyalty platform serving 8 million active shoppers.</p>
+          <div class="case-result">
+            <div class="case-metric"><div class="num">82%</div><div class="lbl">Conversion Lift</div></div>
+            <div class="case-metric"><div class="num">8M</div><div class="lbl">Active Shoppers</div></div>
+            <div class="case-metric"><div class="num">3x</div><div class="lbl">Revenue Growth</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <button class="btn btn-outline" onclick="openModal('contact-modal')">Start Your Success Story →</button>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="section" style="background:var(--white)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:8px">
+      <div class="badge">Leadership</div>
+      <h2 class="section-title">Guided by Vision,<br>Driven by Purpose</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar av-1">👤</div>
+        <div class="team-info">
+          <h4>Arjun Mehta</h4>
+          <div class="role">Chief Executive Officer</div>
+          <p>20+ years in enterprise technology. Former VP at Tata Consultancy, ex-McKinsey. MBA, Harvard Business School.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar av-2">👤</div>
+        <div class="team-info">
+          <h4>Priya Sundar</h4>
+          <div class="role">Chief Technology Officer</div>
+          <p>AI/ML expert and cloud architect. Ex-Google Cloud, MIT Computer Science PhD. 4 patents in distributed systems.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar av-3">👤</div>
+        <div class="team-info">
+          <h4>Marcus Osei</h4>
+          <div class="role">Chief Revenue Officer</div>
+          <p>Built $2B+ enterprise practices at Wipro and Accenture. Specializes in EMEA and Americas market expansion.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar av-4">👤</div>
+        <div class="team-info">
+          <h4>Sofia Renaud</h4>
+          <div class="role">Chief People Officer</div>
+          <p>Culture champion and talent strategist. Ex-Deloitte HR leadership. Builds high-performance diverse teams globally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section id="careers" class="section" style="background:var(--light)">
+  <div class="container">
+    <div class="badge">Careers</div>
+    <h2 class="section-title">Build the Future With Us</h2>
+    <div class="careers-intro">
+      <div>
+        <p class="section-sub" style="max-width:100%">Join a team of 12,000+ innovators, problem-solvers, and technologists who are shaping the next era of enterprise technology. We invest in your growth as much as our clients'.</p>
+        <div style="margin-top:28px">
+          <button class="btn btn-primary" onclick="openModal('apply-modal')">Apply Now →</button>
+        </div>
+      </div>
+      <div class="perks-grid">
+        <div class="perk"><div class="perk-icon">🌍</div><div><h5>Remote-First Culture</h5><p>Work from anywhere with flexible hybrid arrangements</p></div></div>
+        <div class="perk"><div class="perk-icon">📈</div><div><h5>Career Accelerator</h5><p>Structured learning paths and mentorship programs</p></div></div>
+        <div class="perk"><div class="perk-icon">🏥</div><div><h5>Premium Benefits</h5><p>Comprehensive health, dental, vision, and life insurance</p></div></div>
+        <div class="perk"><div class="perk-icon">💰</div><div><h5>Competitive Pay</h5><p>Market-leading salaries, bonuses, and equity options</p></div></div>
+        <div class="perk"><div class="perk-icon">🎓</div><div><h5>Learning Budget</h5><p>$3,000 annual budget for certs and conferences</p></div></div>
+        <div class="perk"><div class="perk-icon">🤝</div><div><h5>Inclusive Community</h5><p>Employee resource groups and diversity initiatives</p></div></div>
+      </div>
+    </div>
+
+    <!-- JOB BOARD -->
+    <h3 style="font-size:26px;color:var(--navy);margin-bottom:24px">Open Positions</h3>
+    <div class="jobs-filter">
+      <input type="text" class="jobs-search" placeholder="🔍  Search roles, skills, locations..." id="jobSearch" oninput="filterJobs()">
+      <select class="filter-select" id="deptFilter" onchange="filterJobs()">
+        <option value="">All Departments</option>
+        <option value="tech">Engineering</option>
+        <option value="data">Data & AI</option>
+        <option value="cloud">Cloud</option>
+        <option value="design">Design</option>
+        <option value="mgmt">Management</option>
+      </select>
+      <select class="filter-select" id="locFilter" onchange="filterJobs()">
+        <option value="">All Locations</option>
+        <option value="remote">Remote</option>
+        <option value="usa">USA</option>
+        <option value="india">India</option>
+        <option value="uk">UK</option>
+        <option value="uae">UAE</option>
+      </select>
+      <select class="filter-select" id="typeFilter" onchange="filterJobs()">
+        <option value="">All Types</option>
+        <option value="fulltime">Full-Time</option>
+        <option value="contract">Contract</option>
+        <option value="parttime">Part-Time</option>
+      </select>
+    </div>
+
+    <div class="jobs-list" id="jobsList"></div>
+    <div id="noJobs" style="display:none;text-align:center;padding:40px;color:var(--gray)">No positions match your search. <a href="#" onclick="clearFilters()" style="color:var(--electric)">Clear filters</a></div>
+  </div>
+</section>
+
+<!-- EMPLOYEE PORTAL -->
+<section id="portal" class="section">
+  <div class="container">
+    <div class="badge badge-gold">Employee Portal</div>
+    <div class="portal-wrap">
+      <div class="portal-left">
+        <h3>Your Workspace,<br>All in One Place</h3>
+        <p>MentourCorp's employee portal gives you secure access to timesheets, payroll, project tools, HR resources, and team collaboration — all from a single login.</p>
+        <div class="portal-features">
+          <div class="portal-feat"><span class="icon">⏱️</span> Weekly timesheet submission and approval</div>
+          <div class="portal-feat"><span class="icon">💵</span> Payslip download and pay history</div>
+          <div class="portal-feat"><span class="icon">📋</span> Leave requests and approvals</div>
+          <div class="portal-feat"><span class="icon">📁</span> Project assignment and task management</div>
+          <div class="portal-feat"><span class="icon">🎓</span> Training modules and certifications</div>
+          <div class="portal-feat"><span class="icon">📞</span> HR support and ticketing</div>
+        </div>
+      </div>
+      <div class="portal-right">
+        <div class="portal-tabs">
+          <div class="portal-tab active" onclick="switchTab('login', this)">Login</div>
+          <div class="portal-tab" onclick="switchTab('register', this)">Register</div>
+          <div class="portal-tab" onclick="switchTab('timesheet', this)">Timesheet</div>
+        </div>
+        <div class="portal-content">
+
+          <!-- LOGIN -->
+          <div class="portal-panel active" id="panel-login">
+            <div id="login-form-wrap">
+              <h4>Welcome Back</h4>
+              <div class="form-group">
+                <label>Employee ID / Email</label>
+                <input type="text" id="loginId" placeholder="emp@mentourcorp.com">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="loginPass" placeholder="••••••••">
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;font-size:13px">
+                <label style="display:flex;align-items:center;gap:6px;cursor:pointer"><input type="checkbox" style="width:auto"> Remember me</label>
+                <a href="#" style="color:var(--electric)">Forgot password?</a>
+              </div>
+              <button class="form-submit" onclick="doLogin()">Sign In →</button>
+              <p style="text-align:center;font-size:13px;color:var(--gray);margin-top:16px">Try: <strong>demo@mentourcorp.com</strong> / <strong>demo123</strong></p>
+            </div>
+            <div id="login-dashboard" style="display:none">
+              <div class="dash-header">
+                <div class="dash-welcome">Welcome back, <span id="dashName">Alex</span> 👋</div>
+                <span class="dash-logout" onclick="doLogout()">Sign out</span>
+              </div>
+              <div class="dash-cards">
+                <div class="dash-card"><div class="num">38</div><div class="lbl">Hours This Week</div></div>
+                <div class="dash-card"><div class="num">7</div><div class="lbl">Days Leave Left</div></div>
+                <div class="dash-card"><div class="num">3</div><div class="lbl">Active Projects</div></div>
+                <div class="dash-card"><div class="num">2</div><div class="lbl">Pending Approvals</div></div>
+              </div>
+              <div style="background:var(--light);border-radius:var(--radius-sm);padding:14px;font-size:14px;color:var(--text2)">
+                <strong style="color:var(--navy)">📢 Announcements</strong><br><br>
+                • Q2 performance reviews open July 1<br>
+                • New learning portal launched — claim your $3K budget<br>
+                • Company offsite: Register by June 30
+              </div>
+              <div style="margin-top:14px;display:flex;gap:8px">
+                <button class="btn btn-primary" style="flex:1;font-size:13px;padding:10px" onclick="switchTab('timesheet',document.querySelectorAll('.portal-tab')[2])">Submit Timesheet</button>
+                <button class="btn btn-outline" style="flex:1;font-size:13px;padding:10px">View Payslip</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- REGISTER -->
+          <div class="portal-panel" id="panel-register">
+            <div id="reg-form">
+              <h4>Create Your Account</h4>
+              <div class="form-row">
+                <div class="form-group"><label>First Name</label><input type="text" placeholder="Alex"></div>
+                <div class="form-group"><label>Last Name</label><input type="text" placeholder="Johnson"></div>
+              </div>
+              <div class="form-group"><label>Work Email</label><input type="email" placeholder="alex@mentourcorp.com"></div>
+              <div class="form-group"><label>Employee ID</label><input type="text" placeholder="MC-2024-XXXX"></div>
+              <div class="form-group">
+                <label>Department</label>
+                <select>
+                  <option>Select department...</option>
+                  <option>Engineering & Technology</option>
+                  <option>Data Science & AI</option>
+                  <option>Cloud Services</option>
+                  <option>Design & UX</option>
+                  <option>Project Management</option>
+                  <option>Human Resources</option>
+                  <option>Finance & Operations</option>
+                  <option>Sales & Marketing</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label>Password</label><input type="password" placeholder="Min. 8 chars"></div>
+                <div class="form-group"><label>Confirm Password</label><input type="password" placeholder="Repeat"></div>
+              </div>
+              <button class="form-submit" onclick="doRegister()">Create Account →</button>
+            </div>
+            <div class="success-msg" id="reg-success">
+              <div class="check">✅</div>
+              <h3>Registration Submitted!</h3>
+              <p>Your account request has been sent to HR for approval. You'll receive a confirmation email within 24 hours.</p>
+            </div>
+          </div>
+
+          <!-- TIMESHEET -->
+          <div class="portal-panel" id="panel-timesheet">
+            <h4>Weekly Timesheet</h4>
+            <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Week of June 2 – 6, 2025</p>
+            <div style="margin-bottom:12px">
+              <div style="font-size:13px;color:var(--text2);margin-bottom:6px;font-weight:500">Project: NovaTrust Core Banking</div>
+              <div class="ts-grid">
+                <div class="ts-day"><div class="day-name">Mon</div><input type="number" value="8" min="0" max="12" id="ts0" oninput="calcTotal()"></div>
+                <div class="ts-day"><div class="day-name">Tue</div><input type="number" value="8" min="0" max="12" id="ts1" oninput="calcTotal()"></div>
+                <div class="ts-day"><div class="day-name">Wed</div><input type="number" value="8" min="0" max="12" id="ts2" oninput="calcTotal()"></div>
+                <div class="ts-day"><div class="day-name">Thu</div><input type="number" value="7" min="0" max="12" id="ts3" oninput="calcTotal()"></div>
+                <div class="ts-day"><div class="day-name">Fri</div><input type="number" value="7" min="0" max="12" id="ts4" oninput="calcTotal()"></div>
+              </div>
+            </div>
+            <div style="margin-bottom:12px">
+              <div style="font-size:13px;color:var(--text2);margin-bottom:6px;font-weight:500">Project: HeliosHealth AI Platform</div>
+              <div class="ts-grid">
+                <div class="ts-day"><div class="day-name">Mon</div><input type="number" value="0" min="0" max="12" id="ts5" oninput="calcTotal()"></div>
+                <div class="ts-day"><div class="day-name">Tue</div><input type="number" value="0" min="0" max="12" id="ts6" oninput="calcTotal()"></div>
+                <div class="ts-day"><div class="day-name">Wed</div><input type="number" value="0" min="0" max="12" id="ts7" oninput="calcTotal()"></div>
+                <div class="ts-day"><div class="day-name">Thu</div><input type="number" value="1" min="0" max="12" id="ts8" oninput="calcTotal()"></div>
+                <div class="ts-day"><div class="day-name">Fri</div><input type="number" value="1" min="0" max="12" id="ts9" oninput="calcTotal()"></div>
+              </div>
+            </div>
+            <div class="ts-total">
+              <span>Total Hours This Week</span>
+              <strong id="tsTotal">40</strong>
+            </div>
+            <div class="form-group"><label>Notes (optional)</label><textarea placeholder="Add any notes, overtime reason, or project updates..." style="min-height:60px"></textarea></div>
+            <button class="form-submit" onclick="submitTs()">Submit Timesheet →</button>
+            <div id="ts-success" style="display:none;text-align:center;padding:16px;background:rgba(0,180,100,0.08);border-radius:var(--radius-sm);margin-top:12px;color:#007840;font-size:14px;font-weight:500">✅ Timesheet submitted for manager approval!</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="badge" style="background:rgba(0,200,212,0.15);color:var(--cyan)">Get In Touch</div>
+    <h2 class="section-title">Let's Build Something<br>Extraordinary</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Whether you're planning a digital transformation, seeking technology partnership, or exploring how AI can accelerate your business — we're ready to help.</p>
+        <div class="contact-items">
+          <div class="contact-item"><span class="icon">📍</span> 1 Mentour Tower, Tech City, Bengaluru 560103, India</div>
+          <div class="contact-item"><span class="icon">🏢</span> 350 Fifth Avenue, Suite 4200, New York, NY 10118, USA</div>
+          <div class="contact-item"><span class="icon">✉️</span> hello@mentourcorp.com</div>
+          <div class="contact-item"><span class="icon">📞</span> +1 (800) MENTOUR  |  +91 80 4567 8900</div>
+          <div class="contact-item"><span class="icon">🕐</span> Mon–Fri: 8AM–8PM EST | 24/7 Support Available</div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Your name"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+        </div>
+        <div class="form-group"><label>Business Email</label><input type="email" placeholder="you@company.com"></div>
+        <div class="form-group"><label>Company</label><input type="text" placeholder="Your organization"></div>
+        <div class="form-group">
+          <label>Service Interest</label>
+          <select>
+            <option>Select a service...</option>
+            <option>Digital Transformation</option>
+            <option>Cloud Infrastructure</option>
+            <option>AI & Machine Learning</option>
+            <option>Cybersecurity</option>
+            <option>Data & Analytics</option>
+            <option>Application Development</option>
+            <option>ERP & Enterprise Systems</option>
+            <option>Managed IT Services</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your project, timeline, and goals..."></textarea></div>
+        <button class="form-submit" onclick="submitContact()">Send Message →</button>
+        <div id="contact-success" style="display:none;text-align:center;padding:16px;background:rgba(0,180,100,0.08);border-radius:var(--radius-sm);margin-top:12px;color:#007840;font-size:14px">✅ Message sent! We'll respond within 1 business day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          MentourCorp
+        </div>
+        <p>Empowering enterprises through technology transformation. Trusted by 400+ organizations across 30+ countries.</p>
+        <div style="display:flex;gap:10px;margin-top:20px">
+          <a href="#" style="width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(255,255,255,0.6);transition:all 0.2s" onmouseover="this.style.background='rgba(0,87,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">in</a>
+          <a href="#" style="width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(255,255,255,0.6);transition:all 0.2s" onmouseover="this.style.background='rgba(0,87,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">𝕏</a>
+          <a href="#" style="width:36px;height:36px;background:rgba(255,255,255,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:rgba(255,255,255,0.6);transition:all 0.2s" onmouseover="this.style.background='rgba(0,87,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">gh</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <a href="#services">Digital Transformation</a>
+        <a href="#services">Cloud Infrastructure</a>
+        <a href="#services">AI & Machine Learning</a>
+        <a href="#services">Cybersecurity</a>
+        <a href="#services">Data & Analytics</a>
+        <a href="#services">App Development</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#why">About MentourCorp</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#work">Portfolio</a>
+        <a href="#industries">Industries</a>
+        <a href="#careers">Careers</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="#">Insights & Blog</a>
+        <a href="#">Whitepapers</a>
+        <a href="#">Case Studies</a>
+        <a href="#">Events</a>
+        <a href="#">Partner Network</a>
+        <a href="#">Newsroom</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MentourCorp. All rights reserved.</span>
+      <div style="display:flex;gap:24px">
+        <a href="#" style="color:rgba(255,255,255,0.45);font-size:13px">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.45);font-size:13px">Terms of Service</a>
+        <a href="#" style="color:rgba(255,255,255,0.45);font-size:13px">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="contact-modal" onclick="closeOnOverlay(event,'contact-modal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('contact-modal')">✕</button>
+    <h2>Get a Free Consultation</h2>
+    <p class="sub">Tell us about your business challenge and we'll connect you with the right expert within 24 hours.</p>
+    <div class="form-row">
+      <div class="form-group"><label>First Name</label><input type="text" placeholder="Your name"></div>
+      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+    </div>
+    <div class="form-group"><label>Business Email</label><input type="email" placeholder="you@company.com"></div>
+    <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000"></div>
+    <div class="form-group">
+      <label>Service Interest</label>
+      <select>
+        <option>Select a service...</option>
+        <option>Digital Transformation</option>
+        <option>Cloud Infrastructure</option>
+        <option>AI & Machine Learning</option>
+        <option>Cybersecurity</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Project Budget</label>
+      <select>
+        <option>Select range...</option>
+        <option>Under $100K</option>
+        <option>$100K – $500K</option>
+        <option>$500K – $2M</option>
+        <option>$2M+</option>
+      </select>
+    </div>
+    <button class="form-submit" onclick="submitQuote()">Request Consultation →</button>
+    <div class="success-msg" id="quote-success">
+      <div class="check">🎉</div>
+      <h3>We'll Be In Touch!</h3>
+      <p>A MentourCorp consultant will reach out within 1 business day to schedule your discovery call.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="apply-modal" onclick="closeOnOverlay(event,'apply-modal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('apply-modal')">✕</button>
+    <h2>Apply to MentourCorp</h2>
+    <p class="sub">Join 12,000+ professionals building the future of enterprise technology.</p>
+    <div class="form-row">
+      <div class="form-group"><label>First Name</label><input type="text" placeholder="Your name"></div>
+      <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+    </div>
+    <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+    <div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 (555) 000-0000"></div>
+    <div class="form-group"><label>Position Applying For</label><input type="text" id="applyRole" placeholder="e.g. Senior Cloud Engineer"></div>
+    <div class="form-group">
+      <label>Years of Experience</label>
+      <select>
+        <option>0–2 years</option>
+        <option>3–5 years</option>
+        <option>6–10 years</option>
+        <option>10+ years</option>
+      </select>
+    </div>
+    <div class="form-group"><label>LinkedIn Profile URL</label><input type="url" placeholder="https://linkedin.com/in/yourprofile"></div>
+    <div class="form-group"><label>Why MentourCorp?</label><textarea placeholder="Tell us what excites you about joining our team..."></textarea></div>
+    <div class="form-group"><label>Resume (Upload)</label><input type="file" accept=".pdf,.doc,.docx" style="font-size:13px;padding:8px"></div>
+    <button class="form-submit" onclick="submitApply()">Submit Application →</button>
+    <div class="success-msg" id="apply-success">
+      <div class="check">🚀</div>
+      <h3>Application Received!</h3>
+      <p>Our talent team will review your application and reach out within 5 business days.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="job-modal" onclick="closeOnOverlay(event,'job-modal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('job-modal')">✕</button>
+    <div id="job-modal-content"></div>
+  </div>
+</div>
+
+<script>
+// ─── JOBS DATA ───
+const jobs = [
+  { id:1, title:"Senior Cloud Architect", dept:"cloud", deptLabel:"Cloud", loc:"usa", locLabel:"USA — Remote", type:"fulltime", typeLabel:"Full-Time", icon:"☁️", iconClass:"jd-cloud", salary:"$130K–$170K", tags:["AWS","Azure","Terraform","Kubernetes"], desc:"Design and implement enterprise cloud infrastructure across AWS, Azure, and GCP. Lead architecture reviews, define standards, and mentor junior engineers." },
+  { id:2, title:"AI/ML Engineer – NLP", dept:"data", deptLabel:"Data & AI", loc:"india", locLabel:"Bengaluru, India", type:"fulltime", typeLabel:"Full-Time", icon:"🤖", iconClass:"jd-data", salary:"₹28–40 LPA", tags:["Python","PyTorch","LLMs","MLOps"], desc:"Build and deploy production-grade NLP models. Work on generative AI features for enterprise clients across BFSI and healthcare sectors." },
+  { id:3, title:"Full Stack Engineer (React/Node)", dept:"tech", deptLabel:"Engineering", loc:"remote", locLabel:"Remote — Global", type:"fulltime", typeLabel:"Full-Time", icon:"💻", iconClass:"jd-tech", salary:"$95K–$130K", tags:["React","Node.js","TypeScript","PostgreSQL"], desc:"Build scalable web applications for enterprise clients. Strong TypeScript skills required. Collaborate with design and DevOps teams in an agile environment." },
+  { id:4, title:"Cybersecurity Analyst (SOC)", dept:"tech", deptLabel:"Engineering", loc:"uk", locLabel:"London, UK", type:"fulltime", typeLabel:"Full-Time", icon:"🛡️", iconClass:"jd-tech", salary:"£60K–£80K", tags:["SIEM","Splunk","ISO27001","Threat Intel"], desc:"Monitor enterprise client environments for threats, respond to incidents, and contribute to continuous security improvement programs." },
+  { id:5, title:"UX/UI Designer — Enterprise", dept:"design", deptLabel:"Design", loc:"remote", locLabel:"Remote — Americas", type:"fulltime", typeLabel:"Full-Time", icon:"🎨", iconClass:"jd-design", salary:"$80K–$110K", tags:["Figma","Design Systems","UX Research","Accessibility"], desc:"Design intuitive enterprise software experiences. Create design systems, conduct user research, and collaborate with engineering to bring designs to life." },
+  { id:6, title:"SAP S/4HANA Consultant", dept:"tech", deptLabel:"Engineering", loc:"uae", locLabel:"Dubai, UAE", type:"fulltime", typeLabel:"Full-Time", icon:"⚙️", iconClass:"jd-tech", salary:"AED 25K–35K/mo", tags:["SAP","S/4HANA","ABAP","SD/MM"], desc:"Implement and customize SAP S/4HANA for large enterprise clients across the GCC region. Functional experience in SD, MM, or FI preferred." },
+  { id:7, title:"Data Engineer – Snowflake/dbt", dept:"data", deptLabel:"Data & AI", loc:"remote", locLabel:"Remote — Global", type:"fulltime", typeLabel:"Full-Time", icon:"📊", iconClass:"jd-data", salary:"$100K–$140K", tags:["Snowflake","dbt","Airflow","Python"], desc:"Build robust data pipelines and data warehouse solutions. Work with enterprise clients to unlock analytics capabilities at scale." },
+  { id:8, title:"Project Manager (PMP)", dept:"mgmt", deptLabel:"Management", loc:"usa", locLabel:"New York, USA", type:"fulltime", typeLabel:"Full-Time", icon:"📋", iconClass:"jd-mgmt", salary:"$110K–$145K", tags:["PMP","Agile","Stakeholder Mgmt","MS Project"], desc:"Lead complex technology transformation programs for Fortune 500 clients. Manage scope, budget, risk, and stakeholder relationships." },
+  { id:9, title:"DevSecOps Engineer", dept:"cloud", deptLabel:"Cloud", loc:"india", locLabel:"Pune, India", type:"fulltime", typeLabel:"Full-Time", icon:"🔧", iconClass:"jd-cloud", salary:"₹22–32 LPA", tags:["Jenkins","Docker","OWASP","Kubernetes"], desc:"Build and maintain CI/CD pipelines with integrated security controls. Champion DevSecOps culture across engineering teams." },
+  { id:10, title:"Business Analyst — Digital Transformation", dept:"mgmt", deptLabel:"Management", loc:"remote", locLabel:"Remote — EMEA", type:"contract", typeLabel:"Contract", icon:"📈", iconClass:"jd-mgmt", salary:"£500–£700/day", tags:["Business Analysis","Agile","BPMN","Stakeholder"], desc:"Drive requirements gathering, process mapping, and solution design for enterprise digital transformation programs." },
+];
+
+function renderJobs(filtered) {
+  const list = document.getElementById('jobsList');
+  const none = document.getElementById('noJobs');
+  if (!filtered.length) { list.innerHTML=''; none.style.display='block'; return; }
+  none.style.display = 'none';
+  list.innerHTML = filtered.map(j => `
+    <div class="job-card" onclick="openJobModal(${j.id})">
+      <div class="job-dept-icon ${j.iconClass}">${j.icon}</div>
+      <div class="job-info">
+        <h4>${j.title}</h4>
+        <div class="job-meta">
+          <span class="tag">${j.deptLabel}</span>
+          <span class="tag">${j.locLabel}</span>
+          <span class="tag tag-gold">${j.typeLabel}</span>
+          <span class="tag tag-blue">${j.salary}</span>
+        </div>
+        <div class="job-tags">${j.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      </div>
+      <button class="job-apply" onclick="event.stopPropagation();applyForJob('${j.title}')">Apply Now</button>
+    </div>
+  `).join('');
+}
+
+function filterJobs() {
+  const q = document.getElementById('jobSearch').value.toLowerCase();
+  const dept = document.getElementById('deptFilter').value;
+  const loc = document.getElementById('locFilter').value;
+  const type = document.getElementById('typeFilter').value;
+  const filtered = jobs.filter(j => {
+    const matchQ = !q || j.title.toLowerCase().includes(q) || j.tags.join(' ').toLowerCase().includes(q) || j.locLabel.toLowerCase().includes(q);
+    const matchD = !dept || j.dept === dept;
+    const matchL = !loc || j.loc === loc;
+    const matchT = !type || j.type === type;
+    return matchQ && matchD && matchL && matchT;
+  });
+  renderJobs(filtered);
+}
+
+function clearFilters() {
+  document.getElementById('jobSearch').value='';
+  document.getElementById('deptFilter').value='';
+  document.getElementById('locFilter').value='';
+  document.getElementById('typeFilter').value='';
+  renderJobs(jobs);
+}
+
+function openJobModal(id) {
+  const j = jobs.find(x=>x.id===id);
+  document.getElementById('job-modal-content').innerHTML = `
+    <div style="display:flex;gap:12px;align-items:center;margin-bottom:20px">
+      <div class="job-dept-icon ${j.iconClass}" style="width:52px;height:52px;font-size:26px">${j.icon}</div>
+      <div><h2 style="font-size:22px;margin:0">${j.title}</h2><p style="color:var(--gray);font-size:14px;margin:4px 0 0">${j.locLabel} · ${j.typeLabel}</p></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+      <span class="tag tag-blue">${j.deptLabel}</span>
+      <span class="tag tag-gold">${j.salary}</span>
+      ${j.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
+    </div>
+    <h4 style="font-size:16px;color:var(--navy);margin-bottom:10px">About the Role</h4>
+    <p style="font-size:15px;color:var(--text2);line-height:1.7;margin-bottom:20px">${j.desc} MentourCorp offers a collaborative global environment, excellent compensation, and the opportunity to work on transformative enterprise programs.</p>
+    <h4 style="font-size:16px;color:var(--navy);margin-bottom:10px">Why MentourCorp?</h4>
+    <ul style="color:var(--text2);font-size:14px;line-height:2;padding-left:18px">
+      <li>Work with Fortune 500 clients across 30+ countries</li>
+      <li>Competitive salary + performance bonuses + equity</li>
+      <li>$3,000 annual learning & certification budget</li>
+      <li>Flexible remote/hybrid work arrangements</li>
+      <li>Comprehensive health and wellness benefits</li>
+    </ul>
+    <button class="form-submit" onclick="applyForJob('${j.title}')" style="margin-top:20px">Apply for This Role →</button>
+  `;
+  openModal('job-modal');
+}
+
+function applyForJob(title) {
+  closeModal('job-modal');
+  document.getElementById('applyRole').value = title;
+  openModal('apply-modal');
+}
+
+// ─── MODAL UTILS ───
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOnOverlay(e, id) {
+  if (e.target.classList.contains('modal-overlay')) closeModal(id);
+}
+
+// ─── FORMS ───
+function submitQuote() {
+  document.querySelector('#contact-modal .form-submit').style.display='none';
+  document.getElementById('quote-success').style.display='block';
+}
+function submitApply() {
+  document.querySelector('#apply-modal .form-submit').style.display='none';
+  document.getElementById('apply-success').style.display='block';
+}
+function submitContact() {
+  document.getElementById('contact-success').style.display='block';
+}
+function doRegister() {
+  document.getElementById('reg-form').style.display='none';
+  document.getElementById('reg-success').style.display='block';
+}
+
+// ─── PORTAL LOGIN ───
+function doLogin() {
+  const id = document.getElementById('loginId').value;
+  const pw = document.getElementById('loginPass').value;
+  if ((id.includes('@') || id.length > 2) && pw.length >= 4) {
+    document.getElementById('login-form-wrap').style.display = 'none';
+    document.getElementById('login-dashboard').style.display = 'block';
+    const name = id.includes('@') ? id.split('@')[0].replace(/[^a-zA-Z]/g,' ').trim().split(' ')[0] : id;
+    document.getElementById('dashName').textContent = name.charAt(0).toUpperCase()+name.slice(1);
+  } else {
+    alert('Please enter a valid email/ID and password (min. 4 chars). Try: demo@mentourcorp.com / demo123');
+  }
+}
+function doLogout() {
+  document.getElementById('login-form-wrap').style.display='block';
+  document.getElementById('login-dashboard').style.display='none';
+  document.getElementById('loginId').value='';
+  document.getElementById('loginPass').value='';
+}
+
+// ─── TIMESHEET ───
+function calcTotal() {
+  let tot = 0;
+  for (let i=0;i<10;i++) tot += parseFloat(document.getElementById('ts'+i).value||0);
+  document.getElementById('tsTotal').textContent = tot;
+}
+function submitTs() {
+  document.getElementById('ts-success').style.display='block';
+  setTimeout(()=>{ document.getElementById('ts-success').style.display='none'; },3500);
+}
+
+// ─── PORTAL TABS ───
+function switchTab(name, el) {
+  document.querySelectorAll('.portal-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.portal-panel').forEach(p=>p.classList.remove('active'));
+  if(el) el.classList.add('active');
+  document.getElementById('panel-'+name).classList.add('active');
+}
+
+// ─── NAV ───
+function setActive(el) {
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  if(el) el.classList.add('active');
+}
+
+// ─── INIT ───
+renderJobs(jobs);
+</script>
+</body>
+</html>
