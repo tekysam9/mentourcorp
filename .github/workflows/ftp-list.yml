@@ -1,0 +1,13 @@
+name: FTP list (temporary)
+on: workflow_dispatch
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get install -y lftp >/dev/null
+      - env:
+          H: ${{ secrets.FTP_SERVER }}
+          U: ${{ secrets.FTP_USERNAME }}
+          P: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -u "$U,$P" -e "set ssl:verify-certificate no; pwd; echo ROOT; cls -l; echo PUBLIC_HTML; cls -l public_html; echo DOMAINS; cls -l domains; echo MC; cls -l domains/mentourcorp.com/public_html; bye" "$H"
