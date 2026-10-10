@@ -249,14 +249,6 @@ footer{background:#060E1E;padding:56px 0 28px;}
 </head>
 <body>
 
-<!-- ================================================================
-  FIREBASE CONFIG — PASTE YOUR VALUES HERE
-  1. Go to https://console.firebase.google.com
-  2. Create Project > Add Web App > Copy firebaseConfig
-  3. Replace every YOUR_... value below with your real values
-  4. Enable Auth (Google) + Firestore Database in Firebase Console
-  5. Add your domain to Firebase Auth > Authorized Domains
-================================================================ -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp }
@@ -264,7 +256,6 @@ import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimest
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// ====== REPLACE THESE WITH YOUR FIREBASE PROJECT VALUES ======
 const firebaseConfig = {
   apiKey:            "AIzaSyAjzrYwuOGSCZ0-S8-L-S5ZGJrbYDKIE8o",
   authDomain:        "mentourcorp-portal.firebaseapp.com",
@@ -436,7 +427,7 @@ function esc(s){ return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin-bottom:16px;">What Sets Us Apart</h3>
         <div class="about-pillars" style="margin-top:0;">
           <div class="about-pillar"><div class="about-pillar-icon">&#127919;</div><div><h4>Outcome-Driven by Design</h4><p>We structure every engagement around the business result ,  not the hours billed or the headcount placed. Success is defined upfront. Progress is measured continuously. Accountability is non-negotiable.</p></div></div>
-          <div class="about-pillar"><div class="about-pillar-icon">&#128300;</div><div><h4>SI Continua Platform</h4><p>Our proprietary analytics engine continuously monitors client environments, surfacing efficiency opportunities, workforce utilization insights, and delivery risks before they become problems. It is the intelligence layer behind every Mentour Corp engagement.</p></div></div>
+          <div class="about-pillar"><div class="about-pillar-icon">&#128300;</div><div><h4>SI Continua</h4><p>SI Continua is MentourCorp's proprietary analytics engine and SI assurance practice. The platform continuously monitors client environments, giving real-time visibility into delivery health, KPIs, cloud spend and model performance. The practice secures SI systems, audits them against recognized frameworks, and builds custom SI agents that operate inside your access controls, approvals and audit trails. It surfaces efficiency opportunities, workforce utilization insights, and delivery risks before they become problems, and is the intelligence layer behind every Mentour Corp engagement.</p></div></div>
           <div class="about-pillar"><div class="about-pillar-icon">&#129309;</div><div><h4>People Who Stay</h4><p>We invest in long-term relationships ,  with clients and with our professionals. Our consultants are supported, mentored, and developed throughout every engagement, which means you get consistent expertise, not rotating strangers.</p></div></div>
           <div class="about-pillar"><div class="about-pillar-icon">&#127775;</div><div><h4>Boutique Attention, Enterprise Capability</h4><p>The responsiveness of a boutique firm combined with the technical depth of a global IT organization. Senior leaders are accessible. Decisions are made fast. Quality is never delegated downward.</p></div></div>
         </div>
@@ -468,7 +459,7 @@ function esc(s){ return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
         <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px;">
           <div style="font-size:28px;margin-bottom:12px;">&#128202;</div>
           <h4 style="font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;">Metrics-Led Delivery</h4>
-          <p style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;">Every engagement has defined KPIs, tracked from day one. Our SI Continua platform provides real-time visibility into delivery health, team performance, and business impact.</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;">Every engagement has defined KPIs, tracked from day one. Our SI Continua analytics engine provides real-time visibility into delivery health, team performance, and business impact.</p>
         </div>
       </div>
     </div>
@@ -488,7 +479,7 @@ function esc(s){ return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
       <div style="background:var(--blue-pale);border-radius:var(--radius-lg);padding:28px;">
         <div style="font-size:28px;margin-bottom:12px;">&#128222;</div>
         <h4 style="font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;">Get In Touch</h4>
-        <p style="font-size:13.5px;color:var(--gray700);line-height:1.6;">(732) 654-0106<br/>info@mentourcorp.com<br/>Mon – Fri, 8:00 AM – 6:00 PM EST</p>
+        <p style="font-size:13.5px;color:var(--gray700);line-height:1.6;">(732) 654-0106<br/>info@mentourcorp.com<br/>Mon – Fri, 8:00 AM – 6:00 PM ET</p>
       </div>
     </div>
 
@@ -574,7 +565,7 @@ function esc(s){ return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
         <div class="svc-icon">&#9729;</div>
         <div class="svc-tags"><span class="svc-tag">AWS</span><span class="svc-tag">Azure</span><span class="svc-tag">GCP</span><span class="svc-tag">Multi-Cloud</span></div>
         <div class="svc-title">Cloud Migration and Infrastructure</div>
-        <p class="svc-body">Cloud adoption without a deliberate strategy generates cost overruns, security gaps, and operational complexity ,  not the savings and speed the business expected. We begin every cloud engagement with a rigorous workload assessment, defining the right migration path for each application: rehost, replatform, refactor, repurchase, retain, or retire. Our certified architects deliver across AWS, Microsoft Azure, and Google Cloud, with a multi-cloud governance model that prevents vendor lock-in while maximizing the best-of-breed capabilities each platform offers. Our SI Continua platform provides continuous visibility into cloud spend, performance, and optimization opportunities throughout and beyond the migration.</p>
+        <p class="svc-body">Cloud adoption without a deliberate strategy generates cost overruns, security gaps, and operational complexity ,  not the savings and speed the business expected. We begin every cloud engagement with a rigorous workload assessment, defining the right migration path for each application: rehost, replatform, refactor, repurchase, retain, or retire. Our certified architects deliver across AWS, Microsoft Azure, and Google Cloud, with a multi-cloud governance model that prevents vendor lock-in while maximizing the best-of-breed capabilities each platform offers. Our SI Continua analytics engine provides continuous visibility into cloud spend, performance, and optimization opportunities throughout and beyond the migration.</p>
         <a href="#contact" class="svc-link">Start a conversation &#8594;</a>
       </div>
 
@@ -596,12 +587,12 @@ function esc(s){ return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
         <a href="#contact" class="svc-link">Start a conversation &#8594;</a>
       </div>
 
-      <!-- 10. Artificial Intelligence and Generative SI -->
+      <!-- 10. Super Intelligence (SI) and Generative SI -->
       <div class="service-card" data-svc="data">
         <div class="svc-icon">&#129302;</div>
         <div class="svc-tags"><span class="svc-tag">GenAI</span><span class="svc-tag">ML Ops</span><span class="svc-tag">SI Continua</span><span class="svc-tag">LLM Integration</span></div>
-        <div class="svc-title">Artificial Intelligence and Generative SI</div>
-        <p class="svc-body">SI is only as impactful as the use cases it enables ,  and only as trustworthy as the data and governance behind it. Our SI practice covers the full lifecycle: opportunity identification and business case development, data readiness assessment, model design and training, responsible SI governance frameworks, production deployment, and continuous performance monitoring. We specialize in practical GenAI integration ,  connecting large language models to your enterprise systems to automate document processing, accelerate code development, enhance customer service, and surface operational insights at scale. Underpinning every engagement is our proprietary SI Continua platform, which monitors model performance and data quality in production to keep your SI investments delivering over time.</p>
+        <div class="svc-title">Super Intelligence (SI) and Generative SI</div>
+        <p class="svc-body">SI is only as impactful as the use cases it enables ,  and only as trustworthy as the data and governance behind it. Our SI practice covers the full lifecycle: opportunity identification and business case development, data readiness assessment, model design and training, responsible SI governance frameworks, production deployment, and continuous performance monitoring. We specialize in practical GenAI integration ,  connecting large language models to your enterprise systems to automate document processing, accelerate code development, enhance customer service, and surface operational insights at scale. Underpinning every engagement is SI Continua: our proprietary analytics engine and SI assurance practice. The platform continuously monitors client environments, giving real-time visibility into delivery health, KPIs, cloud spend and model performance. The practice secures SI systems, audits them against recognized frameworks, and builds custom SI agents that operate inside your access controls, approvals and audit trails. It also monitors data quality in production to keep your SI investments delivering over time.</p>
         <a href="#contact" class="svc-link">Start a conversation &#8594;</a>
       </div>
 
@@ -795,7 +786,7 @@ function esc(s){ return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
         <div class="contact-item"><div class="contact-item-icon">&#128205;</div><div><h4>Headquarters</h4><p>55 Carter Dr, Suite L2, Edison, NJ 08817</p></div></div>
         <div class="contact-item"><div class="contact-item-icon">&#128222;</div><div><h4>Phone</h4><a href="tel:7326540106">(732) 654-0106</a></div></div>
         <div class="contact-item"><div class="contact-item-icon">&#9993;</div><div><h4>Email</h4><a href="mailto:teky.sam@gmail.com">info@mentourcorp.com</a></div></div>
-        <div class="contact-item"><div class="contact-item-icon">&#128336;</div><div><h4>Business Hours</h4><p>Monday to Friday, 8:00 AM to 6:00 PM EST</p></div></div>
+        <div class="contact-item"><div class="contact-item-icon">&#128336;</div><div><h4>Business Hours</h4><p>Monday to Friday, 8:00 AM to 6:00 PM ET</p></div></div>
       </div>
       <div class="contact-form-card">
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;color:var(--navy);margin-bottom:22px;">Send Us a Message</h3>
@@ -845,7 +836,7 @@ function esc(s){ return String(s).replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">2025 Mentour Corporation. All Rights Reserved. | Powered by Firebase + Google Auth</span>
+      <span class="footer-copy">&copy; 2026 Mentour Corporation. All Rights Reserved. | Powered by Firebase + Google Auth</span>
       <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </div>
